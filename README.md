@@ -1,13 +1,26 @@
-# plugin-template
+# amrita-plugin-exec
 
-Amrita的插件模板
+Amrita的命令执行插件
 
-## How to start
+## 功能描述
 
-1. 使用`uv venv`初始化开发环境
-2. 使用`uv sync`同步虚拟环境
-3. 开始你的开发吧。
+这是一个为Amrita框架开发的命令执行插件，允许授权用户在聊天中执行服务器命令。
 
-## Environment
+## 安装
 
-请在Actions配置`PYPI_API_TOKEN`来使用自动发布脚本。
+使用uv安装：
+
+```bash
+uv add amrita-plugin-exec
+```
+
+或者使用pip安装：
+
+```bash
+pip install amrita-plugin-exec
+```
+
+## 使用方法
+
+在Amrita机器人中，授权用户可以使用以下命令：
+- `/exec <command>`：执行指定的服务器命令。
