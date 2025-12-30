@@ -1,5 +1,5 @@
 [project]
-name = "your_plugin_name"
+name = "amrita-plugin-exec"
 description = ""
 version = "0.1.0"
 dependencies = ["amrita[full]>=0.4.2"]
@@ -9,12 +9,13 @@ requires-python = ">=3.10, <3.14"
 [tool.nonebot]
 plugins = [
     "nonebot_plugin_orm",
-    "your_plugin_name",
+    "amrita.plugins.exec",
 ]
 plugin_dirs = []
 
 [tool.setuptools.packages.find]
-include = ["your_plugin_name"]
+where = ["src"]
+include = ["amrita*"]
 
 [[tool.nonebot.adapters]]
 name = "OneBot V11"
