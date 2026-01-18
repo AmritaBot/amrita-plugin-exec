@@ -14,13 +14,45 @@ Amrita的命令执行插件
 uv add amrita-plugin-exec
 ```
 
-或者使用pip安装：
+或者使用amrita-cli安装：
 
 ```bash
-pip install amrita-plugin-exec
+amrita plugin install amrita-plugin-exec
+```
+
+## 配置
+
+插件提供了以下配置选项，可以在 .env 或环境变量中进行配置：
+
+```dotenv
+ENABLE_DOCKER=false
+# 是否启用Docker下的指令执行，默认为 False
+
+PLUGIN_EXEC_IMAGE_NAME=alpine:latest
+# 要使用的Docker镜像名称，默认为 "alpine:latest"
+
+PLUGIN_EXEC_DOCKER_HOST=unix://var/run/docker.sock
+# Docker守护进程的地址，默认为 "unix://var/run/docker.sock"
+
+PLUGIN_EXEC_SHELL_NAME=sh
+# 在容器中执行命令时使用的shell名称，默认为 "sh"
+
+AUTO_REBUILD_CONTAINER=true
+# 是否在运行完成后自动重建容器，默认为 true
 ```
 
 ## 使用方法
 
 在Amrita机器人中，授权用户可以使用以下命令：
 - `/exec <command>`：执行指定的服务器命令。
+
+## 权限节点
+
+插件添加了以下权限节点：
+
+- `amrita.exec.full`：允许用户执行宿主命令。
+- `amrita.exec.safe`：允许用户容器内执行命令。
+
+## TODO
+
+- [ ]  包装为Amrita的Tool

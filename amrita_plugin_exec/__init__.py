@@ -11,5 +11,4 @@ __plugin_meta__ = PluginMetadata(
     type="application",
 )
 
-__all__ = ["container_exec","main"]
-
+__all__ = ["container_exec", "main"]
