@@ -1,6 +1,8 @@
 import shlex
+import typing
 
-from amrita.plugins.chat.API import (
+from amrita.plugins.chat.runtime import AmritaChatObject
+from amrita_core import (
     FunctionDefinitionSchema,
     FunctionParametersSchema,
     FunctionPropertySchema,
@@ -31,11 +33,11 @@ TOOL_DATA = FunctionDefinitionSchema(
     data=TOOL_DATA,
     custom_run=True,
     strict=True,
-    show_call=True,
     enable_if=lambda: CONFIG.enable_in_tool,
 )
 async def _(ctx: ToolContext) -> str:
-    if not await permission_docker(ctx.event._nbevent):
+    coj = typing.cast(AmritaChatObject, ctx.event.chat_object)
+    if not await permission_docker(coj.event):
         return "User permission denied."
     cmd_text = ctx.data["command"]
     cmd_parts = shlex.split(cmd_text)

@@ -1,7 +1,7 @@
 from nonebot.plugin import PluginMetadata, require
 
 require("amrita.plugins.perm")
-
+require("amrita.plugins.chat")
 from . import container_exec, main, tool
 
 __plugin_meta__ = PluginMetadata(
